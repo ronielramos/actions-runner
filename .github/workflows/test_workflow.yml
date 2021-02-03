@@ -46,7 +46,7 @@ jobs:
       - name: Setup Rails Dependencies
         run: |
           sudo apt-get -yqq install libpq-dev build-essential git nodejs libpq-dev xvfb libfontconfig wkhtmltopdf libmagickwand-dev
-          gem install bundler
+          gem install bundler -v "1.17.3"
 
       - uses: actions/cache@v2
         with:
