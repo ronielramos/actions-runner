@@ -57,14 +57,9 @@ jobs:
           bundle config path vendor/bundle
           bundle install --jobs 4 --retry 3          
 
-      - name: Get changed files
-        id: getfile
-        run: |
-          echo "::set-output name=files::$(git diff-tree --no-commit-id --name-only -r ${{ github.sha }} | xargs)"
-
       - name: Linter
         run: |
-          bundle exec rubocop ${{ steps.getfile.outputs.files }}
+          bundle exec rubocop
 
       - name: Tests
         env:
