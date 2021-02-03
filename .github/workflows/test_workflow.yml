@@ -43,13 +43,19 @@ jobs:
         with:
           cmd: install
 
-      - name: Setup Dependencies
+      - name: Setup Rails
         run: |
           sudo apt-get -yqq install libpq-dev build-essential git nodejs libpq-dev xvfb libfontconfig wkhtmltopdf libmagickwand-dev
           gem install bundler -v "1.17.3"
           bundle install --jobs 4 --retry 3          
 
-      - name: Setup Database and Run Tests
+      - uses: actions/checkout@v1
+      - name: Linter
+        uses: andrewmcodes/rubocop-linter-action@v3.3.0
+        with:
+          action_config_path: ".github/config/rubocop_linter_action.yml"
+
+      - name: Tests
         env:
           DATABASE_URL: postgres://postgres:@localhost:5432/test
           REDIS_URL: redis://localhost:6379/0
