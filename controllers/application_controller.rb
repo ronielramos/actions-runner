@@ -2,4 +2,6 @@
 
 class ApplicationController < ActionController::Base
   def test; end
+  def post; end
 end
+
