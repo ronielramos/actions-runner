@@ -5,9 +5,5 @@ RSpec.describe('Random') do
     it "Success" do
       expect(true).to be(true)
     end
-
-    it "Failure" do
-      expect(true).to be(false)
-    end
   end
 end
