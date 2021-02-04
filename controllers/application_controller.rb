@@ -5,7 +5,5 @@ class ApplicationController < ActionController::Base
 
   def post; end
 
-  def get;end
-
-  
+  def get; end
 end
