@@ -33,18 +33,15 @@
       },
       "/Users/roni/Documents/GitHub/actions-runner/app/controllers/test_controller.rb": {
         "lines": [
+          null,
+          null,
           0,
           0,
           null,
           0,
           0,
           0,
-          0,
           null,
-          0,
-          0,
-          0,
-          0,
           0,
           0,
           0,
@@ -80,6 +77,6 @@
         }
       }
     },
-    "timestamp": 1612449996
+    "timestamp": 1612451098
   }
 }
