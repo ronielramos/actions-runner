@@ -68,3 +68,8 @@ jobs:
           bundle exec rake db:schema:load
           bundle exec rake db:migrate
           bundle exec rspec
+
+      - name: Simplecov Report
+        uses: pi-chan/simplecov-report-group-action@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
