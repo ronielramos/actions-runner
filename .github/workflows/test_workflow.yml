@@ -47,19 +47,17 @@ jobs:
           gem install bundler -v "1.17.3"
           bundle install --jobs 4 --retry 3          
 
-      # - name: Lint
-      #   run: |
-      #     bundle exec rubocop --force-exclusion
-
-      - name: Setup pronto
+      # Run lint only on modified files
+      - name: Setup Lint Reporter
         run: gem install pronto pronto-rubocop
-      - name: Run Pronto
+      - name: Run Linter
         run: pronto run -f github_status github_pr -c origin/${{ github.base_ref }}
         env:
           PRONTO_PULL_REQUEST_ID: ${{ github.event.pull_request.number }}
           PRONTO_GITHUB_ACCESS_TOKEN: "${{ github.token }}"
 
-      - name: Tests
+      # Run tests and verify coverage
+      - name: Run Tests
         env:
           DATABASE_URL: postgres://postgres:@localhost:5432/test
           REDIS_URL: redis://localhost:6379/0
@@ -69,7 +67,8 @@ jobs:
           bundle exec rake db:migrate
           bundle exec rspec
 
-      - name: Simplecov Report
+      # Add Report in the opened PR
+      - name: Generate coverage Report
         uses: pi-chan/simplecov-report-group-action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}

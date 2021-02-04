@@ -65,6 +65,7 @@ group :test, :development do
   gem 'rubocop', '~> 1.9'
   gem 'rubocop-rails', '~> 2.1'
   gem 'simplecov'
+  gem 'simplecov_json_formatter'
 end
 
 # Or, run against the main branch
