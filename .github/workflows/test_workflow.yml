@@ -1,8 +1,6 @@
 name: CI
 
 on:
-  push:
-    branches: [ staging ]
   pull_request:
     branches: [ staging ]
 
@@ -49,9 +47,17 @@ jobs:
           gem install bundler -v "1.17.3"
           bundle install --jobs 4 --retry 3          
 
-      - name: Linter
-        run: |
-          bundle exec rubocop --force-exclusion
+      # - name: Lint
+      #   run: |
+      #     bundle exec rubocop --force-exclusion
+
+      - name: Setup pronto
+        run: gem install pronto pronto-rubocop
+      - name: Run Pronto
+        run: pronto run -f github_status github_pr -c origin/${{ github.base_ref }}
+        env:
+          PRONTO_PULL_REQUEST_ID: ${{ github.event.pull_request.number }}
+          PRONTO_GITHUB_ACCESS_TOKEN: "${{ github.token }}"
 
       - name: Tests
         env:
@@ -62,3 +68,8 @@ jobs:
           bundle exec rake db:schema:load
           bundle exec rake db:migrate
           bundle exec rspec
+
+      - name: Simplecov Report
+        uses: pi-chan/simplecov-report-group-action@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}

@@ -64,6 +64,7 @@ group :test, :development do
   gem 'rspec-rails', '~> 4.0.2'
   gem 'rubocop', '~> 1.9'
   gem 'rubocop-rails', '~> 2.1'
+  gem 'simplecov'
 end
 
 # Or, run against the main branch
