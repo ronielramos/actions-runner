@@ -1,1 +1,6 @@
 [![Actions Status](https://github.com/ronielramos/actions-runner/workflows/CI/badge.svg)](https://github.com/ronielramos/actions-runner/actions)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-no-red.svg)](https://github.com/ronielramos/actions-runner)
+[![Github all releases](https://img.shields.io/github/downloads/ronielramos/actions-runner/total.svg)](https://github.com/ronielramos/actions-runner/releases/)
+[![GitHub watchers](https://img.shields.io/github/watchers/ronielramos/actions-runner.svg?style=social&label=Watch&maxAge=2592000)](https://github.com/ronielramos/actions-runner/watchers/)
+[![Github Last Commits](https://img.shields.io/github/last-commit/ronielramos/actions-runner)](https://github.com/ronielramos/actions-runner/commits)
+[![Website status](https://img.shields.io/website?url=https://github.com/ronielramos)](https://github.com/ronielramos)
